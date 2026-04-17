@@ -4,7 +4,7 @@ const{eventData}=Astro.props
 ---
 
 <article>
-  <img src="{eventData.photo}" alt="{eventData.event_name}">
+  <img src={eventData.photo} alt={eventData.event_name}>
     <h2>{eventData.event_name}</h2>
      <p>{eventData.date}</p>
     <p>{eventData.place}</p>
@@ -15,15 +15,17 @@ const{eventData}=Astro.props
 <style>
     img {
         max-width: 100%;
-        height: auto;
+        max-height: 100%;
+           display: block;
+        object-fit: cover;
+     aspect-ratio: 1/1;
     }
     article {
 
-        padding: 2rem;
-        margin: 2rem;
+    
+        margin: 1rem;
         background-color: #E4DDD3;
-        display:block;
-    place-items: center;
+  overflow: hidden;
      
     }
     h2 {
@@ -32,6 +34,10 @@ const{eventData}=Astro.props
        
         justify-items: center;
 
+    }
+    p, h2{
+        margin: 1rem;
+        text-align: center;
     }
  
 </style>
