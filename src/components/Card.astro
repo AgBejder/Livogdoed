@@ -1,2 +1,37 @@
 ---
+const{eventData}=Astro.props
+
 ---
+
+<article>
+  <img src="{eventData.photo}" alt="{eventData.event_name}">
+    <h2>{eventData.event_name}</h2>
+     <p>{eventData.date}</p>
+    <p>{eventData.place}</p>
+    <p>{eventData.deskription}</p>
+   
+</article>
+
+<style>
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+    article {
+        border: 1px solid black;
+        padding: 1rem;
+        margin: 1rem;
+     
+    }
+    h2 {
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+       
+        justify-items: center;
+
+    }
+    body {
+        display: grid;
+grid-template-columns: 1fr 1fr 1fr;
+}
+</style>
