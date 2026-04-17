@@ -1,0 +1,12 @@
+---
+import Card from "./Card.astro";
+const options = {
+    headers:{
+        "apikey": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxqeGJsY2NzZnJyeWNkYWZodWZlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzYyOTA2MzMsImV4cCI6MjA5MTg2NjYzM30.q9nwmyy6LrhZ-0aCNiMZKyj-zKbsZJfyToTAiyqhiyY"
+    }
+}
+const url = "https://ljxblccsfrrycdafhufe.supabase.co/rest/v1/kalender"
+const response = await fetch(url,options)
+const data = await response.json()
+---
+
