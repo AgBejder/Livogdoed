@@ -1,7 +1,34 @@
 ---
 import Card from '../components/Card.astro'
 import Cardcontainer from "../components/Cardcontainer.astro";
+import Layout from '../layout/Layout.astro';
+import Header from '../components/Menu.astro';
 ---
+<body>
+    <header>
+      
+    </header>
 
-  <h2>Mellem Liv og Død</h2> <Cardcontainer />
+<Layout title="kalender"></Layout><h1>Mellem liv og død</h1>
+<h2>Begivenheder, der former os</h2>
+<main>
+    <section>
+   <Cardcontainer />
+   </section>
+   </body>
 	
+<style>h1,h2 { 
+display: flex; 
+justify-content: center;} 
+   
+section {
+        display: grid;
+grid-template-columns: 1fr 1fr 1fr;
+
+} 
+@media (max-width: 700px) {
+    section {
+        display: grid;
+        grid-template-columns: 1fr;
+}}
+</style>
