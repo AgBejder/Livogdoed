@@ -2,6 +2,8 @@
 import Header from '../components/Menu.astro';
 import Hero from '../components/Hero.astro';
 import Events from '../components/Events.astro';
+import '../styles/global.css';
+import ForsideIndhold from '../components/ForsideIndhold.astro';
 ---
 
 
@@ -18,6 +20,28 @@ import Events from '../components/Events.astro';
 		<Header />
 		<Hero />
 		<Events />
+
+
+<ForsideIndhold
+  title="Brevkasse"
+  text1="Har du brug for en uforpligtende snak og nogen at dele dine tanker med, så skriv ind til vores anonyme brevkasse."
+  text2="Ingen tanker eller spørgsmål er forkerte - spørg og del hvad end du har brug for!"
+  btnText="Læs mere"
+  btnHref="/inspiration"
+  imgSrc="/images/brevkasse_result.webp"
+  imgAlt="Brevkasse"
+/>
+
+<ForsideIndhold
+  title="Marias Fortælling"
+  text1="Da Maria er 17 år, mister hun sin bedste veninde til kræft. Hendes verden bryder sammen, og det er svært at se, hvordan tingene skal blive gode igen."
+  text2="Hør Marias fortælling om det at miste en ven i en ung alder."
+  btnText="Læs mere"
+  btnHref="/marias-fortaelling"
+  imgSrc="/images/Maria_result.webp"
+  imgAlt="Maria"
+  imageLeft={true}
+/>
 	</body>
 </html>
 

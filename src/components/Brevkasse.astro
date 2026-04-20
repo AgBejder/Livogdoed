@@ -1,0 +1,88 @@
+---
+---
+
+
+<section class="brevkasse">
+    <div class="brevkasse-content">
+      <h2>Brevkasse</h2>
+      <p>Har du brug for en uforpligtende snak og nogen at dele dine tanker med, så skriv ind til vores anonyme brevkasse. </p>
+      <p>Ingen tanker eller spørgsmål er forkerte - spørg og del hvad end du har brug for!</p>
+      <a href="/inspiration" class="btn">Læs mere</a>
+    </div>
+
+    <div class="brevkasse-image">
+        <img src="/public/images/brevkasse_result.webp" alt="Brevkasse" />
+      </div>
+    </section>
+  
+
+    <style>
+        .brevkasse {
+          display: flex;
+          flex-direction: column;
+          gap: 2rem;
+          padding: 2rem 1.5rem;
+          background: #e8e4df;
+          align-items: center;
+          text-align: center;
+        }
+
+
+
+        .brevkasse-image img {
+          width: 250px;
+          height: 250px;
+          object-fit: cover;
+
+        }
+
+
+        /* Tablet */
+    @media (min-width: 768px) {
+      .brevkasse {
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 3rem;
+    padding: 4rem 6rem;
+      }
+
+      .brevkasse-content {
+        flex: 1;
+        max-width: 480px;
+        text-align: left;
+      }
+
+      .brevkasse-content h2 {
+        text-align: center;
+      }
+
+      .brevkasse-image img {
+      width: 380px;
+      height: 380px;
+      flex: 1;
+      display: flex;
+      justify-content: center;
+    }
+    }
+
+
+
+/* desktop */
+    @media (min-width: 1024px) {
+      .events {
+        padding: 3rem 4rem;
+        gap: 4rem;
+      }
+      h2 {
+        font-size: 2.5rem;
+    
+      }
+
+      img {
+      width: 380px;
+      height: 380px;
+    }
+    }
+  </style>
+
