@@ -1,5 +1,7 @@
 ---
 //@ts-nocheck
+import Layout from '../../layout/Layout.astro';
+import '../../styles/global.css';
 export async function getStaticPaths() {
   const options = {
       headers:{
@@ -22,16 +24,22 @@ export async function getStaticPaths() {
 const { post } = Astro.props;
 
 console.log(post);
+import '../../styles/global.css';
+
 ---
 
+
+<Layout title={post.event_name}>   <!-- ← wrapper der giver charset -->
  <article>
- <img src={post.photo} alt={post.event_name}>
+    <img src={post.photo} alt={post.event_name}>
     <h1>{post.event_name}</h1>
-     <p>{post.date}</p>
-    <p>{post.place}</p>
+    <p class="dato">{post.date}</p>
+    <p class="place">{post.place}</p>
     <p class="tekst">{post.deskription}</p>
+    <p class="ekstratekst">{post.ekstratekst}</p>
     <a href="/tilmeld" class="readmorebtn">Tilmeld dig</a>
-</article>
+  </article>
+</Layout>
     <style>
     img {
         max-width: 50%;
@@ -43,39 +51,52 @@ console.log(post);
      margin-top: 5%;
     }
     article {
-
-    
         margin: 1rem;
         background-color: #E4DDD3;
   overflow: hidden;
-     
     }
+
     h2 {
         font-size: 1rem;
         margin-bottom: 0.5rem;
-       
         justify-items: center;
 
     }
      h2, h1{
         margin: 1rem;
         text-align: center;
+        padding: 0em;
+        font-family: 'dela gothic one', sans-serif;
+   
     }
 
     p {
         margin: 1rem;
         font-size: 1.7rem;
-        text-align: center;}
+        text-align: center;
+    font-family: 'inter', sans-serif;}
         .tekst {
             font-size: 1.2rem;
+            line-height: 1.5;
+               margin-left: 10rem;
+       margin-right: 10rem;
+
         }
         h1 {
             font-size: 3rem;
         }
- 
+
+ .dato {
+       font-weight:bolder;
+       color: #3a3a3a;
+    }
+    .place {
+      color: #3a3a3a;
+      margin-bottom: 2rem;
+    }
  .readmorebtn {
     display: block;
-    width: 5rem;
+    width: 6rem;
     padding: 0.5rem;
     border-radius: 0.2rem;
     margin: 2rem;
@@ -84,6 +105,24 @@ console.log(post);
     text-align: center;
   justify-self: center;
     text-decoration: none;
+font-family: 'inter', sans-serif;
     font-weight: bold;}
+
+    @media (max-width: 700px) {
+    .tekst {
+       margin-left: 2rem;
+       margin-right: 2rem;
+}
+h1{font-size: 2rem;}
+/* img {
+        max-width: 100%;
+        max-height: 100%;
+           display: block;
+        object-fit: cover;
+     aspect-ratio: 1/1;
+     justify-self: center;
+     margin: 5%;
+    } */
+}
 
     </style>

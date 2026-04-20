@@ -7,28 +7,31 @@ import Header from '../components/Menu.astro';
 import '../styles/global.css';
 ---
 
-<body>
-    <!-- <header> -->
-      <!-- <Header /> -->
-    <!-- </header> -->
 
-<Layout title="kalender"></Layout><h1>Mellem liv og død</h1>
+<Layout title="kalender">
+   
+    <h1>Mellem liv og død</h1>
 <h2>Begivenheder, der former os</h2>
 <main>
     <section>
    <Cardcontainer />
    </section>
-   </body>
+   </main>
+   </Layout>
+
 	
 <style>h1,h2 { 
 display: flex; 
-justify-content: center;} 
+justify-content: center;
+font-family: "Dela Gothic One", sans-serif;} 
+
    
 section {
         display: grid;
 grid-template-columns: 1fr 1fr 1fr;
 
 } 
+
 
 @media (max-width: 700px) {
     section {

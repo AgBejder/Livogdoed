@@ -1,7 +1,9 @@
 ---
 
+import Header from '../components/Menu.astro';
 import '../styles/global.css';
 ---
+<header><Header /></header>
 <h1>Tilmeld dit event</h1>
 <section class="form-wrap">
   <form method="POST" action="/api/tilmeld">
@@ -25,6 +27,17 @@ import '../styles/global.css';
       <label for="om">Kort om dig/ jer</label>
       <textarea id="om" name="om"></textarea>
     </div>
+    <div class="choice">
+  <label>
+    <input type="radio" name="eventType" value="har-event" />
+    Jeg har et event
+  </label>
+
+  <label>
+    <input type="radio" name="eventType" value="deltage-event" />
+    Jeg vil deltage til et event
+  </label>
+</div>
     <div class="btn-wrap">
       <button class="button" type="submit">Tilmeld her</button>
     </div>
@@ -93,7 +106,8 @@ import '../styles/global.css';
     text-align: center;
   justify-self: center;
     text-decoration: none;
-    font-family: 'inter', sans-serif;
+    
+font-family: 'inter', sans-serif;
     font-weight: bold;}
     .button:hover {
       background-color: #5a3739;

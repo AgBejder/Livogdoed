@@ -10,8 +10,7 @@ const url = "https://ljxblccsfrrycdafhufe.supabase.co/rest/v1/kalender"
 const response = await fetch(url,options)
 const data = await response.json()
 ---
-<!-- <h2>Mellem Liv og Død</h2>
-<p>{data[0].event_name}</p> -->
+
 
 {data.map((event) => 
     <Card eventData={event} />
