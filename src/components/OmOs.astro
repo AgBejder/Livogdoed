@@ -4,9 +4,9 @@
 
 <section class="OmOs">
 
-    <div class="OmOs-image">
-        <img src="/images/talebobble.webp" alt="Talebobble" />
-      </div>
+  <div class="OmOs-image">
+    <img src="/images/talebobble.webp" alt="Talebobble" />
+  </div>
 
     <div class="content-OmOs">
       <h2>Om os</h2>
@@ -14,6 +14,7 @@
       <p>Uge 44 er hvert år en uge, hvor vi vi nationalt har fokus på døden. Gennem events og samtaler inviterer vi til at bryde tabuet og gøre det mere trygt at tale om det, der ellers kan være svært.</p>
       <p>Rundt om i landet er der over årene kommet flere og flere initiativer og tiltag, der vil bringe de døde og døden ind i vores liv på forskellige måder. Mange af disse initiativer finder sted i uge 44. </p>
     </div>
+
   </section>
 
 
@@ -23,7 +24,6 @@
     .OmOs {
       display: flex;
       flex-direction: column;
-      gap: 2rem;
       padding: 2rem 1.5rem;
       background: #e8e4df;
       align-items: center;
@@ -31,16 +31,10 @@
 
     .content-OmOs {
   text-align: center;
+  order: 1;
     }
 
-    h2 {
-      font-family: Georgia, serif;
-      font-weight: bold;
-      font-style: italic;
-      font-size: 1.8rem;
-      color: #3a3a3a;
-      margin: 0 0 1rem 0;
-    }
+
     .content.OmOs p {
       font-family: Georgia, serif;
       font-size: 1rem;
@@ -50,9 +44,10 @@
     }
 
     .OmOs-image {
-    width: 250px;
-    height: 250px;
+    width: 320px;
+    height: 280px;
     object-fit: cover;
+    order: 2;
 
   }
 
@@ -73,6 +68,7 @@
       .content-OmOs {
         flex: 1;
         max-width: 480px;
+        order: 0;
 
       }
 
@@ -80,6 +76,7 @@
       width: 320px;
       height: 320px;
       flex: -1;
+      order: 0;
     }
 
     .OmOs-image img{
