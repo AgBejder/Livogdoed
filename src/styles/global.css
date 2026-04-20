@@ -1,9 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Dela+Gothic+One&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
 header {
     display: flex;
     align-items: center;
     justify-content: space-between;
     background-color: #f9f9f8;
     padding: 1rem 2rem;
+    font-family: 'Inter', sans-serif;
+  }
+
+  body p{
+
+    margin: 0;
+    padding: 0;
   }
 
   nav ul {
@@ -19,28 +28,33 @@ header {
     font-weight: bold;
   }
 
+  .hero h1{
+    font-family: 'Dela Gothic One', sans-serif;
+    font-weight: regular;
+      font-size: 3rem;
+      font-weight: 900;
+      color: #e8264a;
+      margin: 0;
+      letter-spacing: 2px;
+    }
+
+    .hero h2{
+      font-family: 'Dela Gothic One', sans-serif;
+    font-weight: regular;
+      
+    }
+  
+
   h2 {
-    font-family: Georgia, serif;
-    font-weight: bold;
-    font-style: italic;
-    font-size: 1.8rem;
+    font-family: inter, sans serif;
+    font-weight: regular;
+    font-size: 0.5 rem;
     color: #3a3a3a;
     margin: 0 0 
     1rem 0;
   }
 
-  .btn {
-      background-color: #9B5B4A;
-      color: #E8D5C4;
-      font-size: 18px;
-      font-weight: 700;
-      padding: 16px 40px;
-      border: none;
-      border-radius: 12px;
-      cursor: pointer;
-      text-decoration: none;
-    
-  }
+
 
   .btn-red{
       display: inline-block;
@@ -48,15 +62,64 @@ header {
       padding: 0.875rem 2rem;
       background: #c94a4a;
       color: white;
-      font-family: Georgia, serif;
+      font-family: 'Inter', sans-serif;
       font-size: 1.1rem;
       text-decoration: none;
       border-radius: 8px;
     }
     
+    .btn{
+      display: inline-block;
+      margin-top: 0.5rem;
+      padding: 0.875rem 2rem;
+      background: #9B5B4A;
+      color: #ffffff;
+      font-family: 'Inter', sans-serif;
+      font-size: 1.1rem;
+      text-decoration: none;
+      border-radius: 8px;
+    }
+
     .btn-red:hover {
       background: #b33a3a;
     }
 
+    .content p,
+    .content-OmOs p,
+    .podcast-content p,
+    .content-text p{
+      font-family: Georgia, serif;
+      font-size: 1rem;
+      line-height: 1.7;
+      color: #000000;
+      margin: 0 0 1rem 0;
+      font-family: 'Inter', sans-serif;
+    }
 
-  
+
+
+    /* Tablet */
+    @media (min-width: 768px) {
+      h2 {
+        font-size: 2rem;
+      }
+
+      .hero h1{
+        font-size: 4rem;
+      }
+
+      .content p,
+    .content-OmOs p,
+    .podcast-content p,
+    .content-text p {
+      font-size: 1.2rem;
+    }
+  }
+
+
+  /* desktop */
+  @media (min-width: 1024px) {
+    .hero h1{
+      font-size: 6rem;
+    }
+  }
