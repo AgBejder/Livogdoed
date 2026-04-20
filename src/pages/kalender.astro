@@ -1,13 +1,16 @@
 ---
+//@ts-nocheck
 import Card from '../components/Card.astro'
 import Cardcontainer from "../components/Cardcontainer.astro";
 import Layout from '../layout/Layout.astro';
 import Header from '../components/Menu.astro';
+import '../styles/global.css';
 ---
+
 <body>
-    <header>
-      
-    </header>
+    <!-- <header> -->
+      <!-- <Header /> -->
+    <!-- </header> -->
 
 <Layout title="kalender"></Layout><h1>Mellem liv og død</h1>
 <h2>Begivenheder, der former os</h2>
@@ -26,9 +29,12 @@ section {
 grid-template-columns: 1fr 1fr 1fr;
 
 } 
+
 @media (max-width: 700px) {
     section {
         display: grid;
         grid-template-columns: 1fr;
 }}
+
+
 </style>
