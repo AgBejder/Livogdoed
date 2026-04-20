@@ -41,3 +41,22 @@ header {
       text-decoration: none;
     
   }
+
+  .btn-red{
+      display: inline-block;
+      margin-top: 0.5rem;
+      padding: 0.875rem 2rem;
+      background: #c94a4a;
+      color: white;
+      font-family: Georgia, serif;
+      font-size: 1.1rem;
+      text-decoration: none;
+      border-radius: 8px;
+    }
+    
+    .btn-red:hover {
+      background: #b33a3a;
+    }
+
+
+  
