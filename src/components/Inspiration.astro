@@ -1,0 +1,102 @@
+---
+const { title, text1, text2, text3, btnHref, imgSrc, imgAlt, imgHref, imgSrc2, imgAlt2, imgHref2, imageLeft = false } = Astro.props;
+---
+
+<section class="inspiration-section">
+  <div class="content-text">
+    <h2>{title}</h2>
+    <p>{text1}</p>
+    <p>{text2}</p>
+    <p>{text3}</p>
+  </div>
+
+
+  <div class={`image-wrapper ${imageLeft ? 'order-first' : ''}`}>
+    <a href={imgHref} target="_blank">
+      <img src={imgSrc} alt={imgAlt} />
+    </a>
+    <a href={imgHref2} target="_blank">
+      <img src={imgSrc2} alt={imgAlt2} />
+    </a>
+    </div>
+</section>
+
+
+<style>
+    .inspiration-section{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 2rem;
+        background-color: #e8e4df;
+    }
+
+    .image-wrapper {
+        display: flex;
+        flex: 1;
+        justify-content: center;
+        gap: 1rem;
+        margin-top: 1rem;
+    }
+
+    .image-wrapper img {
+        max-width: 200px;
+        height: auto;
+    }
+
+    .content-text p{
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+
+
+@media (min-width: 768px) {
+    .inspiration-section {
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 3rem;
+        padding: 4rem 6rem;
+    }
+
+    .content-text p{
+        padding-left: 0rem;
+        padding-right: 0rem;
+    }
+
+    .content-text {
+        flex: 1;
+        order: 1;
+        text-align: left;
+        padding-right: 6rem;
+    }
+
+
+    
+        .image-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    order: 0;
+    align-items: center;
+    width: 420px;
+  }
+
+  .image-wrapper img {
+    width: 100%;
+    height: auto;
+    max-width: 300px;
+  }
+
+}
+
+@media (min-width: 1024px) {
+  .inspiration-section {
+    padding: 3rem 4rem;  
+    gap: 4rem;
+  }
+
+}
+
+</style>
