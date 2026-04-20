@@ -18,3 +18,26 @@ header {
     color: #342A2B;
     font-weight: bold;
   }
+
+  h2 {
+    font-family: Georgia, serif;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 1.8rem;
+    color: #3a3a3a;
+    margin: 0 0 
+    1rem 0;
+  }
+
+  .btn {
+      background-color: #9B5B4A;
+      color: #E8D5C4;
+      font-size: 18px;
+      font-weight: 700;
+      padding: 16px 40px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      text-decoration: none;
+    
+  }

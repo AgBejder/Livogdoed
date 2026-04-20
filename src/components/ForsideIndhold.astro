@@ -1,0 +1,81 @@
+---
+const { title, text1, text2, btnText, btnHref, imgSrc, imgAlt, imageLeft = false } = Astro.props;
+---
+
+<section class="section">
+  <div class="content-text">
+    <h2>{title}</h2>
+    <p>{text1}</p>
+    <p>{text2}</p>
+    <a href={btnHref} class="btn">{btnText}</a>
+  </div>
+
+  <div class={`image-wrapper ${imageLeft ? 'order-first' : ''}`}>
+    <img src={imgSrc} alt={imgAlt} />
+  </div>
+</section>
+
+<style>
+  .section {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem 1.5rem;
+    background: #e8e4df;
+    align-items: center;
+    text-align: center;
+  }
+
+  .image-wrapper img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+  }
+
+  @media (min-width: 768px) {
+    .section {
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      gap: 3rem;
+      padding: 4rem 6rem;
+    }
+
+    .order-first {
+      order: -1;
+    }
+
+    .image-wrapper {
+      display: flex;
+      justify-content: center;
+    }
+
+    .image-wrapper img {
+      width: 100%;
+      max-width: 380px;
+      height: 380px;
+      object-fit: cover;
+    }
+
+    .content-text {
+      flex: 1;
+      text-align: left;
+      max-width: 480px;
+    }
+
+    .content-text h2 {
+      text-align: center;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .section {
+      padding: 3rem 4rem;
+      gap: 4rem;
+    }
+
+    h2 {
+      font-size: 2.5rem;
+    }
+  }
+</style>
