@@ -1,4 +1,5 @@
 ---
+//@ts-nocheck
 export async function getStaticPaths() {
   const options = {
       headers:{
@@ -23,4 +24,66 @@ const { post } = Astro.props;
 console.log(post);
 ---
 
-<h1>{post.event_name}</h1>
+ <article>
+ <img src={post.photo} alt={post.event_name}>
+    <h1>{post.event_name}</h1>
+     <p>{post.date}</p>
+    <p>{post.place}</p>
+    <p class="tekst">{post.deskription}</p>
+    <a href="/tilmeld" class="readmorebtn">Tilmeld dig</a>
+</article>
+    <style>
+    img {
+        max-width: 50%;
+        max-height: 50%;
+           display: block;
+        object-fit: cover;
+     aspect-ratio: 1/1;
+     justify-self: center;
+     margin-top: 5%;
+    }
+    article {
+
+    
+        margin: 1rem;
+        background-color: #E4DDD3;
+  overflow: hidden;
+     
+    }
+    h2 {
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+       
+        justify-items: center;
+
+    }
+     h2, h1{
+        margin: 1rem;
+        text-align: center;
+    }
+
+    p {
+        margin: 1rem;
+        font-size: 1.7rem;
+        text-align: center;}
+        .tekst {
+            font-size: 1.2rem;
+        }
+        h1 {
+            font-size: 3rem;
+        }
+ 
+ .readmorebtn {
+    display: block;
+    width: 5rem;
+    padding: 0.5rem;
+    border-radius: 0.2rem;
+    margin: 2rem;
+    background-color: #402A32;
+    color: #fff;
+    text-align: center;
+  justify-self: center;
+    text-decoration: none;
+    font-weight: bold;}
+
+    </style>

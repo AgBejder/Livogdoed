@@ -1,6 +1,6 @@
 ---
 const{eventData}=Astro.props
-
+//@ts-nocheck
 ---
 <!-- <a href={"/kalender/" + eventData.slug}> -->
 <article>
@@ -56,4 +56,7 @@ const{eventData}=Astro.props
     text-decoration: none;
     font-weight: bold;}
 
+    .readmorebtn:hover {
+      background-color: #5a3739;
+    }
 </style>
