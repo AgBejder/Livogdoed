@@ -1,2 +1,69 @@
 ---
+import Menu from "../components/Menu.astro";
+import '../styles/global.css';
+import ForsideIndhold from "../components/ForsideIndhold.astro";
+import Inspiration from "../components/Inspiration.astro";
+import Statistik from "../components/Statistik.astro";
+
 ---
+
+
+<html lang="da">
+	<head>
+		<meta charset="UTF-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="robots" content="noindex,nofollow" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Astro</title>
+	</head>
+
+<body>
+    <Menu />
+    <ForsideIndhold 
+    title="Brevkasse"
+    text1="Har du brug for en uforpligtende snak og nogen at dele dine tanker med, så skriv ind til vores anonyme brevkasse."
+    text2="Her er der plads til alt det, der kan være svært at sige højt - Store tanker, små bekymringer eller spørgsmål, du måske ikke ved, hvem du ellers skal dele med. 
+    Du bestemmer selv, hvad du vil skrive, og du kan være helt anonym."
+    btnText="Skriv her"
+    btnHref="/inspiration"
+    imgSrc="/images/brevkasse_result.webp"
+    imgAlt="Brevkasse"
+    imageLeft={true}
+    />
+
+    <ForsideIndhold
+    title="Personlige fortællinger" 
+    text1="Anna, 48 år, Præst:"
+    text2="Jeg oplever, at danskerne, specifikt unge, har fået berøringsangst hvad angår snakken om døden"
+    btnText="Læs mere"
+    btnHref="/inspiration"
+    imgSrc="/images/fortællinger.webp"
+    imgAlt="Personlige fortællinger"
+    />
+
+    <Inspiration
+    title="Inspiration"
+    text1="Find inspiration til gode film og bøger som berører emnerne Liv og Død. "
+    text2="Klik på taleboblerne for at få oversigter over forskellige film og bøger. "
+    imgSrc="/images/film.webp"
+    imgAlt="film"
+    imgHref="https://livogdoed.dk/wp-content/uploads/Filmliste.pdf"
+    imgSrc2="/images/bog.webp"
+    imgAlt2="bøger"
+    imgHref2="https://livogdoed.dk/wp-content/uploads/Bogliste.pdf"
+    />
+
+
+    <Statistik
+    title="Vidste du at..."
+    text1="10% synes det er nemt at snakke om døden"
+    text2="30% synes det er fint at snakke om døden, men kan ikke forholde sig til den"
+    text3="60% synes det er svært at snakke om døden"
+    imgSrc="/images/statistik.webp"
+    imgAlt="statistik"
+    />
+
+</body>
+<html>
+    
