@@ -2,15 +2,18 @@
 const{eventData}=Astro.props
 
 ---
-
+<!-- <a href={"/kalender/" + eventData.slug}> -->
 <article>
   <img src={eventData.photo} alt={eventData.event_name}>
     <h2>{eventData.event_name}</h2>
      <p>{eventData.date}</p>
     <p>{eventData.place}</p>
     <p>{eventData.deskription}</p>
-   
-</article>
+    <a href={"/kalender/" + eventData.slug} class="readmorebtn">Læs mere</a>
+   </article>
+<!-- <a/> -->
+
+ <!-- {eventData.active ? <p>indidvidet er aktivt<p/> : <p>indidvet er ikke aktivt</p>} -->
 
 <style>
     img {
@@ -40,4 +43,17 @@ const{eventData}=Astro.props
         text-align: center;
     }
  
+ .readmorebtn {
+    display: block;
+    width: 5rem;
+    padding: 0.5rem;
+    border-radius: 0.2rem;
+    margin-bottom: 0.5rem;
+    background-color: #402A32;
+    color: #fff;
+    text-align: center;
+  justify-self: center;
+    text-decoration: none;
+    font-weight: bold;}
+
 </style>

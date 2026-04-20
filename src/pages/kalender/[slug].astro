@@ -1,0 +1,26 @@
+---
+export async function getStaticPaths() {
+  const options = {
+      headers:{
+          apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxqeGJsY2NzZnJyeWNkYWZodWZlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzYyOTA2MzMsImV4cCI6MjA5MTg2NjYzM30.q9nwmyy6LrhZ-0aCNiMZKyj-zKbsZJfyToTAiyqhiyY"
+      }
+  }
+  const url = "https://ljxblccsfrrycdafhufe.supabase.co/rest/v1/kalender"
+  const response = await fetch(url,options)
+  const data = await response.json()
+
+  return data.map((post) => {
+    return {
+      params: { slug: post.slug },
+      props: { post },
+    };
+  });
+}
+
+// const { slug } = Astro.params;
+const { post } = Astro.props;
+
+console.log(post);
+---
+
+<h1>{post.event_name}</h1>
