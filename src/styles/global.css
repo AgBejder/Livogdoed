@@ -28,21 +28,7 @@ header {
     font-weight: bold;
   }
 
-  .hero h1{
-    font-family: 'Dela Gothic One', sans-serif;
-    font-weight: regular;
-      font-size: 3rem;
-      font-weight: 900;
-      color: #e8264a;
-      margin: 0;
-      letter-spacing: 2px;
-    }
 
-    .hero h2{
-      font-family: 'Dela Gothic One', sans-serif;
-    font-weight: regular;
-      
-    }
   
 
   h2 {
@@ -104,10 +90,7 @@ header {
         font-size: 2rem;
       }
 
-      .hero h1{
-        font-size: 4rem;
-      }
-
+    
       .content p,
     .content-OmOs p,
     .podcast-content p,
@@ -116,10 +99,3 @@ header {
     }
   }
 
-
-  /* desktop */
-  @media (min-width: 1024px) {
-    .hero h1{
-      font-size: 6rem;
-    }
-  }
