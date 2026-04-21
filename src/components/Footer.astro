@@ -13,20 +13,19 @@
 
   <div class="footer-social">
     <p>Find os på de sociale medier</p>
+
     <div class="social-icons">
-      <a href="https://facebook.com" target="_blank" aria-label="Facebook">
-        <img src="/images/facebook.svg" alt="Facebook" />
-      </a>
-      <a href="https://instagram.com" target="_blank" aria-label="Instagram">
-        <img src="/images/instagram.svg" alt="Instagram" />
-      </a>
-      <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn">
-        <img src="/images/linkedin.svg" alt="LinkedIn" />
-      </a>
-      <a href="https://youtube.com" target="_blank" aria-label="YouTube">
-        <img src="/images/youtube.svg" alt="YouTube" />
-      </a>
-    </div>
+        <a href="https://www.facebook.com/livogdoed/?locale=da_DK" target="_blank" aria-label="Facebook">
+          <i class="fa-brands fa-facebook-f"></i>
+        </a>
+        <a href="https://www.instagram.com/livogdoed/" target="_blank" aria-label="Instagram">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a href="https://www.linkedin.com/company/landsforeningen-liv-d-d/?originalSubdomain=dk" target="_blank" aria-label="LinkedIn">
+          <i class="fa-brands fa-linkedin-in"></i>
+        </a>
+      </div>
+
   </div>
 </footer>
 
@@ -47,6 +46,7 @@
       display: flex;
       flex-direction: column;
       gap: 0.5rem;
+
     }
   
     .footer-info p,
@@ -66,26 +66,22 @@
       gap: 1rem;
     }
   
-    .footer-social p {
-      margin: 0;
-      color: #888;
-    }
-  
     .social-icons {
-      display: flex;
-      gap: 1rem;
-      align-items: center;
-    }
-  
-    .social-icons img {
-      width: 32px;
-      height: 32px;
-      filter: grayscale(100%) opacity(0.6);
-    }
-  
-    .social-icons a:hover img {
-      filter: grayscale(0%) opacity(1);
-    }
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.social-icons a {
+  color: #888;
+  font-size: 1.8rem;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.social-icons a:hover {
+  color: #3a3a3a;
+}
   
     @media (min-width: 768px) {
       .footer {
