@@ -1,9 +1,13 @@
 ---
 
+import Menu from '../components/Menu.astro';
 import Header from '../components/Menu.astro';
 import '../styles/global.css';
 ---
-<header><Header /></header>
+<body>
+    
+
+<Menu />
 <h1>Tilmeld dit event</h1>
 <section class="form-wrap">
   <form method="POST" action="/api/tilmeld">
@@ -43,7 +47,7 @@ import '../styles/global.css';
     </div>
   </form>
 </section>
-
+</body>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&display=swap');
 
@@ -116,4 +120,5 @@ font-family: 'inter', sans-serif;
 h1 {
   text-align: center;
 margin-bottom: 1.5rem;
+font-family: 'dela gothic one', sans-serif;
 }
