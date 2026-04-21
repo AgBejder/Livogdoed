@@ -1,52 +1,295 @@
 ---
 //@ts-nocheck
-import Card from '../components/Card.astro'
-import Cardcontainer from "../components/Cardcontainer.astro";
 import Layout from '../layout/Layout.astro';
 import Header from '../components/Menu.astro';
 import '../styles/global.css';
 import Footer from '../components/Footer.astro';
+
+const options = {
+    headers:{
+        apikey:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxqeGJsY2NzZnJyeWNkYWZodWZlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzYyOTA2MzMsImV4cCI6MjA5MTg2NjYzM30.q9nwmyy6LrhZ-0aCNiMZKyj-zKbsZJfyToTAiyqhiyY"
+    }
+}
+const url = "https://ljxblccsfrrycdafhufe.supabase.co/rest/v1/kalender"
+const response = await fetch(url, options)
+const data = await response.json()
 ---
 
 <Layout title="kalender">
-   
-    <h1>Mellem liv og død</h1>
-<h2>Begivenheder, der former os</h2>
-<main>
-    <section>
-   <Cardcontainer />
-   </section>
-   </main>
-<Footer />
-   </Layout>
+  <h1>Mellem liv og død</h1>
+  <h2>Begivenheder, der former os</h2>
+  <div class="filter-bar">
 
-	
-<style>h1,h2 { 
-display: flex; 
-justify-content: center;
-font-family: "Dela Gothic One", sans-serif;} 
-h2 {
+    <!-- Desktop knapper -->
+    <div class="filter-group desktop-only">
+      <button class="filter-btn active" data-by="city" data-value="alle">Alle byer</button>
+      <button class="filter-btn" data-by="city" data-value="københavn">København</button>
+      <button class="filter-btn" data-by="city" data-value="århus">Århus</button>
+    </div>
+  
+    <div class="filter-group desktop-only">
+      <button class="filter-btn active" data-by="date" data-value="alle">Alle dage</button>
+      <button class="filter-btn" data-by="date" data-value="2026-10-26">Man 26. okt</button>
+      <button class="filter-btn" data-by="date" data-value="2026-10-27">Tir 27. okt</button>
+      <button class="filter-btn" data-by="date" data-value="2026-10-28">Ons 28. okt</button>
+      <button class="filter-btn" data-by="date" data-value="2026-10-29">Tor 29. okt</button>
+      <button class="filter-btn" data-by="date" data-value="2026-10-30">Fre 30. okt</button>
+      <button class="filter-btn" data-by="date" data-value="2026-10-31">Lør 31. okt</button>
+      <button class="filter-btn" data-by="date" data-value="2026-11-01">Søn 1. nov</button>
+    </div>
+  
+    <!-- Mobil dropdowns -->
+    <div class="mobile-only mobile-filters">
+      <select id="by-select">
+        <option value="alle">Alle byer</option>
+        <option value="københavn">København</option>
+        <option value="århus">Århus</option>
+      </select>
+  
+      <select id="dato-select">
+        <option value="alle">Alle dage</option>
+        <option value="2026-10-26">Man 26. okt</option>
+        <option value="2026-10-27">Tir 27. okt</option>
+        <option value="2026-10-28">Ons 28. okt</option>
+        <option value="2026-10-29">Tor 29. okt</option>
+        <option value="2026-10-30">Fre 30. okt</option>
+        <option value="2026-10-31">Lør 31. okt</option>
+        <option value="2026-11-01">Søn 1. nov</option>
+      </select>
+    </div>
+
+
+  </div>
+
+  <main>
+
+    <section id="card-grid">
+      {data.map((event) => (
+        <article
+          class="card"
+          data-city={event.place?.toLowerCase()}
+          data-date={event.date}
+        >
+          <img src={event.photo} alt={event.event_name} />
+          <h2>{event.event_name}</h2>
+          <p class="dato">{event.date}</p>
+          <p class="place">{event.place}</p>
+          <p>{event.deskription}</p>
+          <a href={"/kalender/" + event.slug} class="readmorebtn">Læs mere</a>
+        </article>
+      ))}
+    </section>
+    <p id="ingen-resultater" style="display:none; text-align:center; margin-top:2rem;">Ingen events fundet.</p>
+  </main>
+
+  <Footer />
+</Layout>
+
+<script>
+    let aktivBy = "alle"
+    let aktivDato = "alle"
+  
+    const datoMap = {
+      "2026-10-26": "26 oktober",
+      "2026-10-27": "27 oktober",
+      "2026-10-28": "28 oktober",
+      "2026-10-29": "29 oktober",
+      "2026-10-30": "30 oktober",
+      "2026-10-31": "31 oktober",
+      "2026-11-01": "1 november",
+    }
+  
+    const buttons = document.querySelectorAll(".filter-btn")
+    const cards = document.querySelectorAll(".card")
+    const ingenResultater = document.getElementById("ingen-resultater")
+  
+    function filtrer() {
+      let synlige = 0
+      cards.forEach((card) => {
+        const by = card.getAttribute("data-city") || ""
+        const dato = card.getAttribute("data-date") || ""
+  
+        const byMatch = aktivBy === "alle" || by.includes(aktivBy)
+        const datoMatch = aktivDato === "alle" || dato === datoMap[aktivDato]
+  
+        if (byMatch && datoMatch) {
+          card.style.display = ""
+          synlige++
+        } else {
+          card.style.display = "none"
+        }
+      })
+      ingenResultater.style.display = synlige === 0 ? "block" : "none"
+    }
+  
+    buttons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const by = btn.getAttribute("data-by")
+        const value = btn.getAttribute("data-value")
+  
+        document.querySelectorAll(`.filter-btn[data-by="${by}"]`).forEach(b => b.classList.remove("active"))
+        btn.classList.add("active")
+  
+        if (by === "city") aktivBy = value
+        if (by === "date") aktivDato = value
+  
+        filtrer()
+      })
+    })
+
+    document.getElementById("by-select")?.addEventListener("change", (e) => {
+  aktivBy = e.target.value
+  filtrer()
+})
+
+document.getElementById("dato-select")?.addEventListener("change", (e) => {
+  aktivDato = e.target.value
+  filtrer()
+})
+  </script>
+
+
+<style>
+
+.mobile-only { display: none; }
+.desktop-only { display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; }
+
+  h1, h2 {
+    display: flex;
+    justify-content: center;
+    font-family: "Dela Gothic One", sans-serif;
+  }
+
+  h2 {
     font-size: 1.2rem;
     margin-top: 0rem;
+  }
 
-}
-h1 {
+  h1 {
     font-size: 3rem;
-   
+  }
+
+  .filter-bar {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.5rem 2rem;
+    align-items: center;
+  }
+
+  .filter-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+  }
+
+  .filter-btn {
+    padding: 0.5rem 1rem;
+    border: 1px solid #402A32;
+    border-radius: 2rem;
+    background: transparent;
+    color: #402A32;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .filter-btn.active,
+  .filter-btn:hover {
+    background: #402A32;
+    color: white;
+  }
+
+  #card-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 1rem;
+  }
+
+  .card {
+    display: grid;
+    grid-template-columns: subgrid;
+    grid-row: span 6;
+    margin: 1rem;
+    background-color: #E4DDD3;
+    overflow: hidden;
+  }
+
+  .card img {
+    max-width: 100%;
+    display: block;
+    object-fit: cover;
+    aspect-ratio: 1/1;
+  }
+
+  .card h2 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .card p, .card h2 {
+    margin: 0.5rem;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .readmorebtn {
+    display: block;
+    width: 5rem;
+    padding: 0.7rem;
+    border-radius: 0.2rem;
+    margin: 2rem;
+    background-color: #402A32;
+    color: #fff;
+    text-align: center;
+    justify-self: center;
+    font-family: 'Inter', sans-serif;
+    text-decoration: none;
+    height: 1.2rem;
+  }
+
+  .readmorebtn:hover {
+    background-color: #5a3739;
+  }
+
+  .dato {
+    font-weight: bold;
+    color: #3a3a3a;
+  }
+
+  .place {
+    color: #3a3a3a;
+    margin-bottom: 2rem;
+  }
+
+  @media (max-width: 700px) {
+    #card-grid {
+      grid-template-columns: 1fr;
+    }
+
+  .mobile-only { display: flex; }
+  .desktop-only { display: none; }
+
+
+.mobile-filters {
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  padding: 0 1.5rem;
 }
-   
-section {
-        display: grid;
-grid-template-columns: 1fr 1fr 1fr;
 
-} 
-
-
-@media (max-width: 700px) {
-    section {
-        display: grid;
-        grid-template-columns: 1fr;
-}}
-
-
+.mobile-filters select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #402A32;
+  border-radius: 2rem;
+  background: transparent;
+  color: #402A32;
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  cursor: pointer;
+  }
+}
 </style>
